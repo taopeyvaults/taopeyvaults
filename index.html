@@ -93,33 +93,61 @@
             height: 30px;
             margin: 0 10px;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4); /* Dimmed background */
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: rgb(147, 67, 222); /* Matching website's purple */
+            color: white; /* For contrast */
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Optional: adds a bit of depth */
+        }
+        #agreeCheck {
+            margin-top: 10px;
+        }
+        #closeModal {
+            background-color: rgb(255, 111, 0); /* Website's orange */
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        #closeModal[disabled] {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
     </style>
+
+
 </head>
 <body>
-    <div class="square square1"></div>
-    <div class="square square2"></div>
-    <div class="square square3"></div>
-    <div class="square square4"></div>
-    <div class="square square5"></div>
-    <div class="square square6"></div>
-    <div class="square square7"></div>
-    <div class="square square8"></div>
-    <div class="square square9"></div>
-    <div class="square square10"></div>
-    <div class="square square11"></div>
-    <div class="square square12"></div>
-    <div class="square square13"></div>
-    <div class="square square14"></div>
-    <div class="square square15"></div>
-    <div class="square square16"></div>
-    <div class="square square17"></div>
-    <div class="square square18"></div>
-    <div class="square square19"></div>
-    <div class="square square20"></div>
-    <div class="square square21"></div>
-    <div class="square square22"></div>
-    <div class="square square23"></div>
-    <div class="square square24"></div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p>This initiative, 'Taopey Vaults,' is a high-risk, experimental venture. It is not financial advice. The strategies deployed are based on Bittensor Subnet signals, the smart contracts of Perpy Finance, and GMX perpetual exchange, alongside unaudited scripts for order execution. These elements pose significant risks, including but not limited to smart contract vulnerabilities, inaccuracies in signals, human error, and the intrinsic risks of trading in volatile markets.</p>
+            <p>By proceeding, you affirmatively acknowledge understanding the experimental nature of 'Taopey Vaults,' the reliance on unaudited scripts, external data feeds, and the potential for total loss of funds. This acknowledgment does not constitute investment advice or a recommendation to engage in any investment or trading strategy. We make no representations regarding the legality of access or participation in 'Taopey Vaults' in your jurisdiction. You are responsible for compliance with local laws and regulations.</p>
+            <p>Due to regulatory constraints, residents of the United States are not allowed to participate in 'Taopey Vaults.' By agreeing to these terms, you represent and warrant that you are not a resident of the United States. To the fullest extent permitted by law, 'Taopey Vaults,' its developers, and affiliates disclaim all liability for any losses or damages of any kind arising from or in connection with your participation in this experiment.</p>
+            <p>Terms and risk factors may be updated or modified from time to time. We will notify users of significant changes through the website or via email for registered users.</p>
+            <input type="checkbox" id="agreeCheck"> I have read, understand, and accept the terms and risks associated with 'Taopey Vaults.' I affirm that I am not a resident of the United States.
+            <button id="closeModal" disabled>Continue</button>
+        </div>
+    </div>
+    
 
     <div class="content">
         <h2>Taopey Vaults: an on-chain trading experiment</h2>
@@ -136,6 +164,20 @@
             <p><b>Powered by Bittensor Network & Perpy Finance</b></p>
 
         </div>
-    </div>
+
+    <script>
+        // When the user clicks the button, open the modal 
+        window.onload = function() {
+            document.getElementById('myModal').style.display = "block";
+        }
+        
+        document.getElementById('agreeCheck').onclick = function() {
+            document.getElementById('closeModal').disabled = !this.checked;
+        };
+
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('myModal').style.display = "none";
+        };
+    </script>
 </body>
 </html>
