@@ -2,73 +2,52 @@
 <html>
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HX0NPNFF5Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX0NPNFF5Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-HX0NPNFF5Q');
-</script>
+      gtag('config', 'G-HX0NPNFF5Q');
+    </script>
 
     <link rel="icon" type="image/png" href="favicon.png"/>
     <title>Taopey Vaults</title>
     
     <style>
         body, html {
-            height: auto; /* Adjusted to auto to enable content length to dictate body size */
+            height: 100%; /* Full height */
             margin: 0;
             font-family: "Courier New", Courier, monospace;
-            background-color: rgb(147, 67, 222);
+            color: white; /* Set text color to white */
+            background: url('large-background.png') no-repeat center center fixed; 
+            background-size: cover; /* Cover the entire page */
             display: flex;
-            flex-direction: column; /* Ensures content is aligned from top to bottom */
+            flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Aligns content to start from the top */
+            justify-content: center;
         }
 
-        .square {
-            position: absolute;
-            background-color: rgb(146, 53, 233);
+        @media (max-width: 768px) {
+            body {
+                background-image: url('small-background.png'); /* Smaller or optimized image for mobile */
+            }
         }
-
-        .square1 { width: 100px; height: 100px; top: 20%; left: 30%; }
-        .square2 { width: 150px; height: 150px; top: 50%; left: 60%; }
-        .square3 { width: 200px; height: 200px; top: 70%; left: 10%; }
-        .square4 { width: 80px; height: 80px; top: 5%; left: 70%; }
-        .square5 { width: 120px; height: 120px; top: 30%; left: 10%; }
-        .square6 { width: 50px; height: 50px; top: 50%; left: 80%; }
-        .square7 { width: 220px; height: 220px; top: 40%; left: 30%; }
-        .square8 { width: 90px; height: 90px; top: 10%; left: 20%; }
-        .square9 { width: 110px; height: 110px; top: 60%; left: 90%; }
-        .square10 { width: 70px; height: 70px; top: 15%; left: 40%; }
-        .square11 { width: 130px; height: 130px; top: 85%; left: 50%; }
-        .square12 { width: 60px; height: 60px; top: 25%; left: 75%; }
-        .square13 { width: 140px; height: 140px; top: 55%; left: 5%; }
-        .square14 { width: 95px; height: 95px; top: 35%; left: 65%; }
-        .square15 { width: 65px; height: 65px; top: 10%; left: 15%; }
-        .square16 { width: 85px; height: 85px; top: 20%; left: 25%; }
-        .square17 { width: 75px; height: 75px; top: 30%; left: 35%; }
-        .square18 { width: 95px; height: 95px; top: 40%; left: 45%; }
-        .square19 { width: 55px; height: 55px; top: 50%; left: 55%; }
-        .square20 { width: 45px; height: 45px; top: 60%; left: 65%; }
-        .square21 { width: 35px; height: 35px; top: 70%; left: 75%; }
-        .square22 { width: 25px; height: 25px; top: 80%; left: 85%; }
-        .square23 { width: 15px; height: 15px; top: 90%; left: 95%; }
-        .square24 { width: 50px; height: 50px; top: 10%; left: 85%; }
 
         .content {
+            visibility: hidden; /* Initially hide the content */
             max-width: 1000px;
-            background-color: rgba(255, 111, 0, 0); /* Content box color */
+            background-color: rgba(0, 0, 0, 0.6); /* Darker and more transparent content box */
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             position: relative;
             z-index: 2;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Adds depth */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         a {
-            color: #040404; /* Fluorescent orange color for links */
+            color: #ffffff; /* Links in white */
             text-decoration: none;
             display: block;
             margin: 10px 0;
@@ -78,106 +57,93 @@
             text-decoration: underline;
         }
 
-        .social-links {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin: 0 10px;
-        }
-
-        .social-icon {
-            width: 150px;
-            height: 150px;
-            margin: 0 50px;
-        }
         .modal {
-            display: none;
+            display: none; /* Hidden by default */
             position: fixed;
             z-index: 9999;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4); /* Dimmed background */
-            padding-top: 60px;
+            overflow: auto; /* Enable scrolling if needed */
+            background-color: rgba(0,0,0,0.4); /* Black background with opacity */
         }
+
         .modal-content {
-            background-color: rgb(147, 67, 222); /* Matching website's purple */
-            color: white; /* For contrast */
-            margin: 5% auto;
+            background-color: rgba(0, 0, 0, 0.8); /* Dark background for modal */
+            color: white;
+            margin: 5% auto; /* Margin top and centered horizontally */
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Optional: adds a bit of depth */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
-        #agreeCheck {
-            margin-top: 10px;
-        }
+
         #closeModal {
-            background-color: rgb(255, 111, 0); /* Website's orange */
+            background-color: #ff6f00;
             color: white;
             padding: 10px 20px;
             margin: 10px 0;
             border: none;
             cursor: pointer;
         }
+
         #closeModal[disabled] {
             background-color: #ddd;
             cursor: not-allowed;
         }
+
+        .twitter-link {
+            margin-top: 20px; /* Space between content and link */
+        }
+
+        .twitter-icon {
+            width: 32px; /* Set a fixed size for the icon */
+            height: 32px;
+        }
     </style>
-
-
 </head>
 <body>
-
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <p>This initiative, 'Taopey Vaults,' is a high-risk, real time trading experiment. It is not financial advice. The strategies deployed are based on Bittensor Subnet signals, the smart contracts of Perpy Finance, and GMX perpetual exchange, alongside unaudited scripts to analyze signals and trigger manual or automated order execution. These elements pose significant risks, including but not limited to smart contract vulnerabilities, inaccuracies in signals, human error in execution, and the intrinsic risks of trading in volatile markets.</p>
+            <p>This initiative, 'Taopey Vaults,' is a high-risk, real-time trading experiment. It is not financial advice. The strategies deployed are based on Bittensor Subnet signals, the smart contracts of Perpy Finance, and GMX perpetual exchange, alongside unaudited scripts to analyze signals and trigger manual or automated order execution. These elements pose significant risks, including but not limited to smart contract vulnerabilities, inaccuracies in signals, human error in execution, and the intrinsic risks of trading in volatile markets.</p>
             <p>By proceeding, you affirmatively acknowledge understanding the experimental nature of 'Taopey Vaults,' the reliance on external data feeds, external smart contracts, unaudited scripts, manual or automated order execution and the potential for total loss of funds. This acknowledgment does not constitute investment advice or a recommendation to engage in any investment or trading strategy. We make no representations regarding the legality of access or participation in 'Taopey Vaults' in your jurisdiction. You are responsible for compliance with local laws and regulations.</p>
-            <p>Due to regulatory constraints, residents of the United States are not allowed to participate in 'Taopey Vaults.' By agreeing to these terms, you represent and warrant that you are not a resident of the United States. To the fullest extent permitted by law, 'Taopey Vaults,' its developers, and affiliates disclaim all liability for any losses or damages of any kind arising from or in connection with your participation in this experiment.</p>
+            <p>By accessing or using the Taopey Vaults, you represent and warrant that you are not a 'US Person' as defined in Regulation S under the United States Securities Act of 1933, as amended. If you are a 'US Person', you are not authorized to access or use our platform, and any such access or use is strictly prohibited. Taopey Vaults does not allow residents or individuals located in, or entities organized under the laws of the following countries or territories to use its services: United States of America; China; Cuba; Crimea and Sevastopol; Iran; Afghanistan; Syria; North Korea; China; Hong Kong; Thailand; Malaysia; Canada. All such persons and entities are expressly restricted from accessing or using the services. Participation in Taopey Vaults is voluntary and users acknowledge the potential risks, indemnifying Taopey Vaults from any related claims or liabilities. It is your responsibility to ensure that you are not accessing the services from a restricted country, and we encourage you to seek legal advice before using the services.</p>
+        </p>
             <p>Terms and risk factors may be updated or modified from time to time. We will notify users of significant changes through the website. For a detailed understanding of all terms, conditions, and risks, please review our T&C below:<a href="https://drive.google.com/file/d/1OgxCoyCjbBDBuKNMNTTQhGCryAhr4GKy/view?usp=sharing" target="_blank">Terms and Conditions</a></p>
             <input type="checkbox" id="agreeCheck"> I have read, understand, and accept the terms and risks associated with 'Taopey Vaults.' I affirm that I am not a resident of the United States.
             <button id="closeModal" disabled>Continue</button>
         </div>
     </div>
     
-
     <div class="content">
         <h2>Taopey Vaults: an on-chain trading experiment</h2>
         <h3>Permissionless AI meets Permissionless Trading</h3>
-        <h4>This is a very high risk, real time trading experiment, executing (non backtested) trading strategies based off the BTC/ ETH trading signals on Subnet #8 of the BITTENSOR NETWORK. This is purely for experiment and fun to evaluate the signals generated by the network. Not financial advice.</h4>
-        <h4>The experiment runs on PERPY FINANCE as it provides permissionless access to onchain liquidity with in-depth statistical insight on the experimental strategies. Using Perpy's unique non-custodial copy trading vaults, while anyone can gain exposure to this experiment in a permissionless manner, you're highly discouraged from doing so. By depositing funds in these vaults, you take 100% responsibility for your action and acknowledge that you understand the risks and that you can lose 100% of the funds.</h4>
-        
-        <a href="https://app.perpy.finance/vault/0x39b5c1def837413ea666139c36b35240e782c1de/" target="_blank"><b><h4 style="margin: 0;">View on-chain performance of the BTC OG Vault</h4></b></a>
-        <a href="https://app.perpy.finance/vault/0x96d59d79ae3234aa3d2453ffcbef92493b365e33/" target="_blank"><b><h4 style="margin: 0;">View on-chain performance of the ETH OG Vault</h4></b></a>
-        
-        <div class="social-links">
-            <a href="https://twitter.com/taopeyvaults" target="_blank">
-                <img src="vault.png" alt="Perpy" class="social-icon">
-            </a>
-            <p><b>Powered by Bittensor Network & Perpy Finance</b></p>
+        <h4>This is a very high-risk, real-time trading experiment, executing (non-backtested) trading strategies based off the BTC/ETH trading signals on Subnet #8 of the BITTENSOR NETWORK. This is purely for experimentation and fun to evaluate the signals generated by the network. Not financial advice.</h4>
+        <h4>The experiment runs on PERPY FINANCE as it provides permissionless access to onchain liquidity with in-depth statistical insight on the experimental strategies. Using Perpy's unique non-custodial copy trading vaults, while anyone can gain exposure to this experiment in a permissionless manner, you're highly discouraged from doing so. By depositing funds in these vaults, you take 100% responsibility for your actions and acknowledge that you understand the risks and that you can lose 100% of the funds.</h4>
+        <a href="https://app.perpy.finance/vault/0x39b5c1def837413ea666139c36b35240e782c1de/" target="_blank">🔐 <b>View on-chain performance of the BTC OG Vault</b></a>
+        <a href="https://app.perpy.finance/vault/0x96d59d79ae3234aa3d2453ffcbef92493b365e33/" target="_blank">🔐 <b>View on-chain performance of the ETH OG Vault</b></a>
+    </div>
 
-        </div>
+    <div class="twitter-link">
+        <a href="https://twitter.com/taopeyvaults" target="_blank">
+            <img src="twitter-icon.png" alt="Follow us on Twitter" class="twitter-icon">
+        </a>
+    </div>
 
     <script>
-        // When the user clicks the button, open the modal 
         window.onload = function() {
             document.getElementById('myModal').style.display = "block";
         }
-        
+
         document.getElementById('agreeCheck').onclick = function() {
             document.getElementById('closeModal').disabled = !this.checked;
         };
 
         document.getElementById('closeModal').onclick = function() {
             document.getElementById('myModal').style.display = "none";
+            document.querySelector('.content').style.visibility = 'visible'; // Show the main content only after agreeing to the terms
         };
     </script>
 </body>
